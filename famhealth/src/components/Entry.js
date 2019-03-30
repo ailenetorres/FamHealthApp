@@ -7,10 +7,9 @@ export class Entry extends Component {
 
   entryStyle = () => {
     return {
-      backgroundColor: "#f4f4f4",
+      backgroundColor: "#fff5ee",
       width: "70%",
       padding: "10px",
-      borderBottom: "1px #ccc solid",
       textDecoration: "none",
       marginBottom: "5px"
     };
@@ -24,12 +23,12 @@ export class Entry extends Component {
 
   editButtonStyle = () => {
     return {
-      backgroundColor: "#245ac6",
+      backgroundColor: "#57cbcc",
       marginTop: "2px",
       marginBottom: "10px",
       marginRight: "5px",
       padding: "9px",
-      borderColor: "#759eef",
+      borderColor: "#57cbcc",
       borderWidth: "1.2px",
       borderRadius: "3px",
       borderStyle: "solid",
