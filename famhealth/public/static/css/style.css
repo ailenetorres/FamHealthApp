@@ -579,6 +579,7 @@ a:focus, a:hover {
 }
 
 .hero-area {
+  background-image: url("static/img/pills.jpg");
   background-color: #fff5ee;
   background-size: cover;
   height: 100vh;
@@ -595,6 +596,7 @@ a:focus, a:hover {
 }
 
 .hero-area:before {
+  background-image: url("static/img/pills.jpg");
   content: '';
   background-color: #fff5ee;
   position: absolute;
@@ -605,6 +607,7 @@ a:focus, a:hover {
 }
 
 .hero-area .block {
+  background-image: url("static/img/pills.jpg");
   text-align: center;
   z-index: 99;
 }
