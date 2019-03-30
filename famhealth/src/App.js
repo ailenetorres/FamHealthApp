@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Entries entries={this.state.entries} />
+        <center><Entries entries={this.state.entries} /></center>
       </div>
     );
   }
