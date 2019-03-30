@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Entries from "./components/Entries";
-import MapContainer from "./MapContainer";
 import "./App.css";
 
 //same as:
