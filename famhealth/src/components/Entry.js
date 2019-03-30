@@ -75,6 +75,8 @@ export class Entry extends Component {
     this.props.entry.saved = true;
     this.props.entry.name = document.getElementById("name").value;
     this.props.entry.text = document.getElementById("entry").value;
+    this.props.entry.method = document.getElementById("method").value;
+    this.props.entry.time = document.getElementById("time").value;
     this.forceUpdate();
   };
 
@@ -99,6 +101,16 @@ export class Entry extends Component {
             style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
           >
             {this.props.entry.text === "" ? "Text" : this.props.entry.text}
+          </p>
+          <p
+            style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
+          >
+            {this.props.entry.method === "" ? "Method" : this.props.entry.method}
+          </p>
+          <p
+            style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
+          >
+            {this.props.entry.tim === "" ? "Time" : this.props.entry.time}
           </p>
         </div>
         <button
@@ -141,7 +153,7 @@ export class Entry extends Component {
             }
             style={this.editTextStyle()}
           />
-          <select>
+          <select id = "method">
               <option value="Mouth">Mouth</option>
               <option value="Injection">Injection</option>
               <option value="Dropper">Dropper</option>
@@ -149,9 +161,10 @@ export class Entry extends Component {
               <option value="inhalation">Inhalation</option>
               <option value="topical">Topical</option>
               <option value="IV">IV</option>
+              
           </select>
           <br />
-          <input type="time" id="appt" name="appt"
+          <input type="time" id="time" name="time"
        min="0:00" max="24:00" value="07:30" required/>
           <br />
           <button
