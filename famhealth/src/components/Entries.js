@@ -20,14 +20,13 @@ class Entries extends Component {
   };
 
   handleClick = () => {
-    console.log("hi");
     this.props.entries.push({
-      id: 4,
-      day: 5,
-      month: 6,
-      year: 2018,
       saved: false,
-      title: "",
+      id: 4,
+      dosage: "",
+      method: "",
+      time: "",
+      name: "",
       text: ""
     });
     this.forceUpdate();
