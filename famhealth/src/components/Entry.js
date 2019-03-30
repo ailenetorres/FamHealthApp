@@ -132,6 +132,7 @@ export class Entry extends Component {
       <div style={this.entryStyle()}>
         {/*One button is clicked, the component updates to the saved version*/}
         <form>
+          <p>Medication Name:</p>
           <TextareaAutosize
             minRows="1"
             maxRows="1"
@@ -143,6 +144,7 @@ export class Entry extends Component {
             style={this.editNameStyle()}
           />
           <br />
+          <p>Dosage:</p>
           <TextareaAutosize
             minRows="1"
             maxRows="1"
@@ -153,7 +155,9 @@ export class Entry extends Component {
             }
             style={this.editTextStyle()}
           />
-          <select id = "method" defaultValue={ this.props.entry.method === "" ? "" : this.props.entry.method } >
+          <br />
+          <p>Method of Administration:</p>
+          <select id = "method" style={{marginTop: "3px", marginBottom:"3px"}} defaultValue={ this.props.entry.method === "" ? "" : this.props.entry.method } >
               <option value="Mouth">Mouth</option>
               <option value="Injection">Injection</option>
               <option value="Dropper">Dropper</option>
@@ -164,8 +168,9 @@ export class Entry extends Component {
               
           </select>
           <br />
+          <p>Time:</p>
           <input type="time" id="time" name="time"
-       min="0:00" max="24:00" required defaultValue={ this.props.entry.time === "" ? "" : this.props.entry.time } />
+       min="0:00" max="24:00" required defaultValue={ this.props.entry.time === "" ? "" : this.props.entry.time} style={{marginTop: "3px", marginBottom:"3px"}} />
           <br />
           <button
             type="button"
