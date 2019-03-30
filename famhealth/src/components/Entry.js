@@ -141,7 +141,15 @@ export class Entry extends Component {
             }
             style={this.editTextStyle()}
           />
-          <select>He</select>
+          <select>
+              <option value="Mouth">Mouth</option>
+              <option value="Injection">Injection</option>
+              <option value="Dropper">Dropper</option>
+              <option value="nasal spray">Nasal Spray</option>
+              <option value="inhalation">Inhalation</option>
+              <option value="topical">Topical</option>
+              <option value="IV">IV</option>
+          </select>
           <br />
           <button
             type="button"
