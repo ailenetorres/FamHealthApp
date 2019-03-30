@@ -10,14 +10,14 @@ Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive,
 @import url("https://fonts.googleapis.com/css?family=Anaheim|Quattrocento+Sans:400,700");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:300,400,600");
 html {
-  background-color: #353b43;
-  color: #737f8a;
+  background-color: #f6eeda;
+  color: #f6eeda;
 }
 
 body {
-  background-color: #353b43;
+  background-color: #f6eeda;
   font-family: "Anaheim", sans-serif;
-  color: #737f8a;
+  color: white;
   -webkit-font-smoothing: antialiased;
 }
 
