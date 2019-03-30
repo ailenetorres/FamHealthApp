@@ -153,7 +153,7 @@ export class Entry extends Component {
             }
             style={this.editTextStyle()}
           />
-          <select id = "method">
+          <select id = "method" defaultValue={ this.props.entry.method === "" ? "" : this.props.entry.method } >
               <option value="Mouth">Mouth</option>
               <option value="Injection">Injection</option>
               <option value="Dropper">Dropper</option>
@@ -165,7 +165,7 @@ export class Entry extends Component {
           </select>
           <br />
           <input type="time" id="time" name="time"
-       min="0:00" max="24:00" required/>
+       min="0:00" max="24:00" required defaultValue={ this.props.entry.time === "" ? "" : this.props.entry.time } />
           <br />
           <button
             type="button"
