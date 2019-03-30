@@ -110,7 +110,7 @@ export class Entry extends Component {
           <p
             style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
           >
-            {this.props.entry.tim === "" ? "Time" : this.props.entry.time}
+            {this.props.entry.time === "" ? "Time" : this.props.entry.time}
           </p>
         </div>
         <button
