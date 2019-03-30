@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "autosize": "^4.0.2",
+    "google-maps-react": "^2.0.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-scripts": "2.1.8",

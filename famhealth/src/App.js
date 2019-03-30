@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Entries from "./components/Entries";
+import MapContainer from "./components/MapContainer";
 import "./App.css";
 
 //same as:
@@ -17,6 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <center><Entries entries={this.state.entries} /></center>
+        <MapContainer/>
       </div>
     );
   }
