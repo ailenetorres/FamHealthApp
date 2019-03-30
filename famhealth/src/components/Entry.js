@@ -16,7 +16,7 @@ export class Entry extends Component {
     };
   };
 
-  titleStyle = () => {
+  nameStyle = () => {
     return {
       fontSize: "18px"
     };
@@ -39,7 +39,7 @@ export class Entry extends Component {
     };
   };
 
-  editTitleStyle = () => {
+  editNameStyle = () => {
     return {
       resize: "none",
       overflow: "hidden",
@@ -73,7 +73,7 @@ export class Entry extends Component {
   saveClick = () => {
     //changes state and then re-renderds the component
     this.props.entry.saved = true;
-    this.props.entry.title = document.getElementById("title").value;
+    this.props.entry.name = document.getElementById("name").value;
     this.props.entry.text = document.getElementById("entry").value;
     this.forceUpdate();
   };
@@ -92,8 +92,8 @@ export class Entry extends Component {
     return this.props.entry.saved && this.props.entry.key != -1 ? (
       <div style={this.entryStyle()}>
         <div style={{ opacity: this.props.entry.text === "" ? 0.5 : 1 }}>
-          <p style={this.titleStyle()}>
-            {this.props.entry.title === "" ? "Title" : this.props.entry.title}
+          <p style={this.nameStyle()}>
+            {this.props.entry.name === "" ? "Name" : this.props.entry.name}
           </p>
           <p
             style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
@@ -123,24 +123,25 @@ export class Entry extends Component {
           <TextareaAutosize
             minRows="1"
             maxRows="1"
-            id="title"
-            placeholder="Title"
+            id="name"
+            placeholder="Name"
             defaultValue={
-              this.props.entry.title === "" ? "" : this.props.entry.title
+              this.props.entry.name === "" ? "" : this.props.entry.name
             }
-            style={this.editTitleStyle()}
+            style={this.editNameStyle()}
           />
           <br />
           <TextareaAutosize
-            minRows="10"
-            maxRows="20"
+            minRows="1"
+            maxRows="1"
             id="entry"
-            placeholder="Text"
+            placeholder="Dosage"
             defaultValue={
               this.props.entry.text === "" ? "" : this.props.entry.text
             }
             style={this.editTextStyle()}
           />
+          <select>He</select>
           <br />
           <button
             type="button"
