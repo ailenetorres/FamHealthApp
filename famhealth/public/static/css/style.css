@@ -1164,7 +1164,7 @@ a:focus, a:hover {
   Our Team
 ==================================================================*/
 .team-member {
-  background-color: #292F36;
+  background-color: #fff5ee;
   margin-bottom: 10px;
 }
 
@@ -1358,12 +1358,12 @@ a:focus, a:hover {
   Latest Posts
 ==================================================================*/
 .note {
-  background-color: #292F36;
+  background-color: #fff5ee;
   border: 1px solid #4e595f;
 }
 
 .post-block {
-  background-color: #292F36;
+  background-color: #fff5ee;
   margin-bottom: 10px;
 }
 
