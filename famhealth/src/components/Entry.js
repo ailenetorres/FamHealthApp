@@ -165,7 +165,7 @@ export class Entry extends Component {
           </select>
           <br />
           <input type="time" id="time" name="time"
-       min="0:00" max="24:00" value="07:30" required/>
+       min="0:00" max="24:00" required/>
           <br />
           <button
             type="button"
