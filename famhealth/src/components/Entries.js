@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 class Entries extends Component {
   buttonStyle = () => {
     return {
-      backgroundColor: "#245ac6",
+      backgroundColor: "#57cbcc",
       marginTop: "2px",
       marginBottom: "10px",
       padding: "9px",
-      borderColor: "#759eef",
+      borderColor: "#57cbcc",
       borderWidth: "1.2px",
       borderRadius: "3px",
       borderStyle: "solid",
