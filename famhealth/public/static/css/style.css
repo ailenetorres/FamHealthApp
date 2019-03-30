@@ -10,12 +10,12 @@ Tags: one-page, single-page, portfolio, custom-colors, post-formats, responsive,
 @import url("https://fonts.googleapis.com/css?family=Anaheim|Quattrocento+Sans:400,700");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:300,400,600");
 html {
-  background-color: #353b43;
+  background-color: #fff5ee;
   color: #737f8a;
 }
 
 body {
-  background-color: #353b43;
+  background-color: #fff5ee;
   font-family: "Anaheim", sans-serif;
   color: #737f8a;
   -webkit-font-smoothing: antialiased;
@@ -704,7 +704,7 @@ a:focus, a:hover {
   About us section
 ==================================================================*/
 .about .block {
-  background: #242930;
+  background: #fff5ee;
   padding: 30px;
   border-bottom: 2px solid transparent;
   transition: .5s all;
