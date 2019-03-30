@@ -91,7 +91,7 @@ export class Entry extends Component {
   };
 
   render() {
-    return this.props.entry.saved && this.props.entry.key != -1 ? (
+    return this.props.entry.saved && this.props.entry.key !== -1 ? (
       <div style={this.entryStyle()}>
         <div style={{ opacity: this.props.entry.text === "" ? 0.5 : 1 }}>
           <p style={this.nameStyle()}>
@@ -128,7 +128,7 @@ export class Entry extends Component {
           Delete
         </button>
       </div>
-    ) : this.props.entry.key != -1 ? (
+    ) : this.props.entry.key !== -1 ? (
       <div style={this.entryStyle()}>
         {/*One button is clicked, the component updates to the saved version*/}
         <form>
@@ -164,6 +164,7 @@ export class Entry extends Component {
               
           </select>
           <br />
+
           <input type="time" id="time" name="time"
        min="0:00" max="24:00" required/>
           <br />
