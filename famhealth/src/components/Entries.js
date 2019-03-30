@@ -50,7 +50,7 @@ class Entries extends Component {
           onClick={this.handleClick}
           style={this.buttonStyle()}
         >
-          Add New Entry
+          Add New Medication
         </button>
       </div>
     ) : (
