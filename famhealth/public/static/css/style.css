@@ -579,7 +579,7 @@ a:focus, a:hover {
 }
 
 .hero-area {
-  background-image: url("../images/slider/hero-area.jpg");
+  background-color: #fff5ee;
   background-size: cover;
   height: 100vh;
   position: relative;
@@ -596,7 +596,7 @@ a:focus, a:hover {
 
 .hero-area:before {
   content: '';
-  background: rgba(0, 0, 0, 0.63);
+  background-color: #fff5ee;
   position: absolute;
   top: 0;
   right: 0;
