@@ -100,7 +100,7 @@ export class Entry extends Component {
           <p
             style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
           >
-            {this.props.entry.text === "" ? "Text" : this.props.entry.text}
+            {this.props.entry.text === "" ? "Dosage" : this.props.entry.text}
           </p>
           <p
             style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
@@ -144,6 +144,7 @@ export class Entry extends Component {
             style={this.editNameStyle()}
           />
           <br />
+          
           <p>Dosage:</p>
           <TextareaAutosize
             minRows="1"
