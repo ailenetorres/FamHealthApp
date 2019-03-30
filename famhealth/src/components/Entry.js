@@ -143,6 +143,9 @@ export class Entry extends Component {
           />
           <select>He</select>
           <br />
+          <input type="time" id="appt" name="appt"
+       min="0:00" max="24:00" value="07:30" required/>
+          <br />
           <button
             type="button"
             style={this.editButtonStyle()}
