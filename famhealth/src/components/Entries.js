@@ -3,6 +3,20 @@ import Entry from "./Entry";
 import PropTypes from "prop-types";
 
 class Entries extends Component {
+  state = {
+    entries: [
+      {
+        id: -1,
+        dosage: "test_dosage",
+        method: "test_dosage",
+        time: "00:00",
+        name: "test_dosage",
+        saved: true,
+        hidden: true
+      }
+    ]
+  };
+
   buttonStyle = () => {
     return {
       backgroundColor: "#57cbcc",
@@ -19,17 +33,20 @@ class Entries extends Component {
     };
   };
 
-  handleClick = () => {
-    this.props.entries.push({
+  addNew = () => {
+    this.state.entries.push({
       saved: false,
-      id: 4,
+      id: this.state.entries.length,
       dosage: "",
       method: "",
       time: "",
-      name: "",
-      text: ""
+      name: ""
     });
     this.forceUpdate();
+  };
+
+  deleteEntry = (id) => {
+    this.setState({ entries: this.state.entries.splice(id, 1) });
   };
 
   render() {
@@ -41,15 +58,15 @@ class Entries extends Component {
     return true ? (
       <div>
         <div>
-          {this.props.entries.map((entry) => (
-            <Entry key={entry.id} entry={entry} />
+          {this.state.entries.map((entry) => (
+            <Entry
+              key={entry.id}
+              entry={entry}
+              deleteEntry={this.deleteEntry}
+            />
           ))}
         </div>
-        <button
-          id="button"
-          onClick={this.handleClick}
-          style={this.buttonStyle()}
-        >
+        <button id="button" onClick={this.addNew} style={this.buttonStyle()}>
           Add New Medication
         </button>
       </div>
@@ -58,10 +75,5 @@ class Entries extends Component {
     );
   }
 }
-
-// PropTypes
-Entries.propTypes = {
-  entries: PropTypes.array.isRequired
-};
 
 export default Entries;

@@ -9,14 +9,13 @@ import "./App.css";
 class App extends Component {
   //life cycle method, only one required: used to render component
   //returns JSX (html {javascript}), can't use class="", must use className;
-  state = {
-    entries: []
-  };
 
   render() {
     return (
-      <div className="App" style={{marginBottom: "300px"}}>
-        <center><Entries entries={this.state.entries}></ Entries></center>
+      <div className="App" style={{ marginBottom: "300px" }}>
+        <center>
+          <Entries />
+        </center>
       </div>
     );
   }

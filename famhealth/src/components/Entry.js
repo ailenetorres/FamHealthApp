@@ -73,7 +73,7 @@ export class Entry extends Component {
     //changes state and then re-renderds the component
     this.props.entry.saved = true;
     this.props.entry.name = document.getElementById("name").value;
-    this.props.entry.text = document.getElementById("entry").value;
+    this.props.entry.dosage = document.getElementById("dosage").value;
     this.props.entry.method = document.getElementById("method").value;
     this.props.entry.time = document.getElementById("time").value;
     this.forceUpdate();
@@ -92,19 +92,23 @@ export class Entry extends Component {
   render() {
     return this.props.entry.saved && this.props.entry.key !== -1 ? (
       <div style={this.entryStyle()}>
-        <div style={{ opacity: this.props.entry.text === "" ? 0.5 : 1 }}>
+        <div style={{ opacity: this.props.entry.dosage === "" ? 0.5 : 1 }}>
           <p style={this.nameStyle()}>
             {this.props.entry.name === "" ? "Name" : this.props.entry.name}
           </p>
           <p
             style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
           >
-            {this.props.entry.text === "" ? "Dosage" : this.props.entry.text}
+            {this.props.entry.dosage === ""
+              ? "Dosage"
+              : this.props.entry.dosage}
           </p>
           <p
             style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
           >
-            {this.props.entry.method === "" ? "Method" : this.props.entry.method}
+            {this.props.entry.method === ""
+              ? "Method"
+              : this.props.entry.method}
           </p>
           <p
             style={{ marginBottom: "3px", marginTop: "3px", fontSize: "14px" }}
@@ -122,7 +126,7 @@ export class Entry extends Component {
         <button
           type="button"
           style={this.editButtonStyle()}
-          onClick={this.deleteClick}
+          onClick={this.props.deleteEntry.bind(this, this.props.key)}
         >
           Delete
         </button>
@@ -143,34 +147,49 @@ export class Entry extends Component {
             style={this.editNameStyle()}
           />
           <br />
-          
+
           <p>Dosage:</p>
           <TextareaAutosize
             minRows="1"
             maxRows="1"
-            id="entry"
+            id="dosage"
             placeholder="Dosage"
             defaultValue={
-              this.props.entry.text === "" ? "" : this.props.entry.text
+              this.props.entry.dosage === "" ? "" : this.props.entry.dosage
             }
             style={this.editTextStyle()}
           />
           <br />
           <p>Method of Administration:</p>
-          <select id = "method" style={{marginTop: "3px", marginBottom:"3px"}} defaultValue={ this.props.entry.method === "" ? "" : this.props.entry.method } >
-              <option value="Mouth">Mouth</option>
-              <option value="Injection">Injection</option>
-              <option value="Dropper">Dropper</option>
-              <option value="nasal spray">Nasal Spray</option>
-              <option value="inhalation">Inhalation</option>
-              <option value="topical">Topical</option>
-              <option value="IV">IV</option>
-              
+          <select
+            id="method"
+            style={{ marginTop: "3px", marginBottom: "3px" }}
+            defaultValue={
+              this.props.entry.method === "" ? "" : this.props.entry.method
+            }
+          >
+            <option value="Mouth">Mouth</option>
+            <option value="Injection">Injection</option>
+            <option value="Dropper">Dropper</option>
+            <option value="nasal spray">Nasal Spray</option>
+            <option value="inhalation">Inhalation</option>
+            <option value="topical">Topical</option>
+            <option value="IV">IV</option>
           </select>
           <br />
           <p>Time:</p>
-          <input type="time" id="time" name="time"
-       min="0:00" max="24:00" required defaultValue={ this.props.entry.time === "" ? "" : this.props.entry.time} style={{marginTop: "3px", marginBottom:"3px"}} />
+          <input
+            type="time"
+            id="time"
+            name="time"
+            min="0:00"
+            max="24:00"
+            required
+            defaultValue={
+              this.props.entry.time === "" ? "" : this.props.entry.time
+            }
+            style={{ marginTop: "3px", marginBottom: "3px" }}
+          />
           <br />
           <button
             type="button"
