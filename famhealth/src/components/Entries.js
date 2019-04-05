@@ -46,7 +46,15 @@ class Entries extends Component {
   };
 
   deleteEntry = (id) => {
-    this.setState({ entries: this.state.entries.splice(id, 1) });
+    this.setState((state) => {
+      const list = state.entries.splice(id, 1);
+      for (var i = 1; i < this.state.entries.length; i++) {
+        this.state.entries[i].id = i;
+      }
+      return {
+        list
+      };
+    });
   };
 
   render() {

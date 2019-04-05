@@ -126,7 +126,7 @@ export class Entry extends Component {
         <button
           type="button"
           style={this.editButtonStyle()}
-          onClick={this.props.deleteEntry.bind(this, this.props.key)}
+          onClick={this.props.deleteEntry.bind(this, this.props.entry.id)}
         >
           Delete
         </button>
