@@ -3,17 +3,7 @@ import Entry from "./Entry";
 
 class Entries extends Component {
   state = {
-    entries: [
-      {
-        id: -1,
-        dosage: "test_dosage",
-        method: "test_dosage",
-        time: "00:00",
-        name: "test_dosage",
-        saved: true,
-        hidden: true
-      }
-    ]
+    entries: []
   };
 
   buttonStyle = () => {
@@ -33,23 +23,36 @@ class Entries extends Component {
   };
 
   addNew = () => {
-    this.state.entries.push({
+    //creates a copy of entries
+    var list = this.state.entries.slice();
+    //creates a new object to input
+    const newEntry = {
       saved: false,
       id: this.state.entries.length,
       dosage: "",
       method: "",
       time: "",
       name: ""
+    };
+    //adds new object to copy of array
+    list.push(newEntry);
+    //sets entries to the modified array
+    this.setState({
+      entries: list
     });
-    this.forceUpdate();
   };
 
   deleteEntry = (deletedId) => {
+    //creates a copy of entries
     var list = this.state.entries.slice();
+    //removes the desired element from the entry
     list = list.slice(0, deletedId).concat(list.slice(deletedId + 1));
+
+    //updates the id of each element to match its position on the list
     for (var i = 1; i < list.length; i++) {
       list[i].id = i;
     }
+    //sets entries to the modified array
     this.setState({
       entries: list
     });
