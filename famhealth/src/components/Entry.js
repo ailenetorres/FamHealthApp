@@ -66,21 +66,6 @@ export class Entry extends Component {
     };
   };
 
-  saveClick = () => {
-    //changes state and then re-renderds the component
-    this.props.entry.saved = true;
-    this.props.entry.name = document.getElementById("name").value;
-    this.props.entry.dosage = document.getElementById("dosage").value;
-    this.props.entry.method = document.getElementById("method").value;
-    this.props.entry.time = document.getElementById("time").value;
-    this.forceUpdate();
-  };
-
-  editClick = () => {
-    this.props.entry.saved = false;
-    this.forceUpdate();
-  };
-
   render() {
     return this.props.entry.saved && this.props.entry.key !== -1 ? (
       <div style={this.entryStyle()}>
@@ -111,27 +96,26 @@ export class Entry extends Component {
         <button
           type="button"
           style={this.editButtonStyle()}
-          onClick={this.props.editEntry.bind(this, this.props.entry.id)}
+          onClick={this.props.editEntry.bind(this, this.props.entry)}
         >
-          {/*onClick={this.editClick}*/}
           Edit
         </button>
         <button
           type="button"
           style={this.editButtonStyle()}
-          onClick={this.props.deleteEntry.bind(this, this.props.entry.id)}
+          onClick={this.props.deleteEntry.bind(this, this.props.entry)}
         >
           Delete
         </button>
       </div>
     ) : this.props.entry.key !== -1 ? (
       <div style={this.entryStyle()}>
-        {/*One button is clicked, the component updates to the saved version*/}
+        {/*Once button is clicked, the component updates to the saved version*/}
         <form>
           <p>Medication Name:</p>
           <TextareaAutosize
-            minRows="1"
-            maxRows="1"
+            minRows={1}
+            maxRows={1}
             id="name"
             placeholder="Name"
             defaultValue={
@@ -143,8 +127,8 @@ export class Entry extends Component {
 
           <p>Dosage:</p>
           <TextareaAutosize
-            minRows="1"
-            maxRows="1"
+            minRows={1}
+            maxRows={1}
             id="dosage"
             placeholder="Dosage"
             defaultValue={
@@ -187,7 +171,7 @@ export class Entry extends Component {
           <button
             type="button"
             style={this.editButtonStyle()}
-            onClick={this.saveClick}
+            onClick={this.props.saveEntry.bind(this, this.props.entry)}
           >
             Save
           </button>
@@ -203,13 +187,5 @@ export class Entry extends Component {
 Entry.propTypes = {
   entry: PropTypes.object.isRequired
 };
-
-/*
-CAN USE VARIABLES AS STYLES
-const entryStyle = {
-  fontFamily: "Times New Roman",
-  backgroundColor: "#184860"
-};
-*/
 
 export default Entry;

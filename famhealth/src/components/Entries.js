@@ -3,7 +3,16 @@ import Entry from "./Entry";
 
 class Entries extends Component {
   state = {
-    entries: [{}]
+    entries: [
+      {
+        saved: true,
+        id: 0,
+        dosage: "TestDosage",
+        method: "TestMethod",
+        time: "TestTime",
+        name: "TestName"
+      }
+    ]
   };
 
   buttonStyle = () => {
@@ -41,33 +50,45 @@ class Entries extends Component {
     });
   };
 
-  deleteEntry = (deletedId) => {
+  deleteEntry = (entry) => {
     //creates a copy of entries
-    var list = this.state.entries.slice();
+    var copy = this.state.entries.slice();
     //removes the desired element from the entry
-    list = list.slice(0, deletedId).concat(list.slice(deletedId + 1));
+    copy = copy.slice(0, entry.id).concat(copy.slice(entry.id + 1));
 
     //updates the id of each element to match its position on the list
-    for (var i = 1; i < list.length; i++) {
-      list[i].id = i;
+    for (var i = 0; i < copy.length; i++) {
+      copy[i].id = i;
     }
     //sets entries to the modified array
     this.setState({
-      entries: list
+      entries: copy
     });
   };
 
-  //works for all but first one;
-  editEntry = (id) => {
+  editEntry = (entry) => {
+    //creates a copy of entries
     var copy = this.state.entries;
-    copy[id].saved = false;
+    copy[entry.id].saved = false;
     this.setState({
-      copy
+      entries: copy
     });
   };
-  //TODO create saveEntry method
-  //Takes in an that has all of the id, name, etc.
-  //Saves it and updates the singluar entry
+
+  saveEntry = (entry) => {
+    var copy = this.state.entries;
+    copy[entry.id] = {
+      saved: true,
+      id: entry.id,
+      name: document.getElementById("name").value,
+      dosage: document.getElementById("dosage").value,
+      method: document.getElementById("method").value,
+      time: document.getElementById("time").value
+    };
+    this.setState({
+      entries: copy
+    });
+  };
 
   render() {
     return (
@@ -79,6 +100,7 @@ class Entries extends Component {
               entry={entry}
               deleteEntry={this.deleteEntry}
               editEntry={this.editEntry}
+              saveEntry={this.saveEntry}
             />
           ))}
         </div>
