@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Entry from "./Entry";
-import PropTypes from "prop-types";
 
 class Entries extends Component {
   state = {
@@ -45,15 +44,14 @@ class Entries extends Component {
     this.forceUpdate();
   };
 
-  deleteEntry = (id) => {
-    this.setState((state) => {
-      const list = state.entries.splice(id, 1);
-      for (var i = 1; i < this.state.entries.length; i++) {
-        this.state.entries[i].id = i;
-      }
-      return {
-        list
-      };
+  deleteEntry = (deletedId) => {
+    var list = this.state.entries.slice();
+    list = list.slice(0, deletedId).concat(list.slice(deletedId + 1));
+    for (var i = 1; i < list.length; i++) {
+      list[i].id = i;
+    }
+    this.setState({
+      entries: list
     });
   };
 
@@ -63,7 +61,7 @@ class Entries extends Component {
     //for object in entires (App.js) that we map through (list) we want to return:
     //entry={entry}, the specifc Entry component will have an entry (object in App.js states) that can be referred to by the attribute/prop .entry
     // similar for key
-    return true ? (
+    return (
       <div>
         <div>
           {this.state.entries.map((entry) => (
@@ -78,8 +76,6 @@ class Entries extends Component {
           Add New Medication
         </button>
       </div>
-    ) : (
-      <p />
     );
   }
 }
