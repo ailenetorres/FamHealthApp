@@ -3,7 +3,7 @@ import Entry from "./Entry";
 
 class Entries extends Component {
   state = {
-    entries: []
+    entries: [{}]
   };
 
   buttonStyle = () => {
@@ -17,8 +17,7 @@ class Entries extends Component {
       borderRadius: "3px",
       borderStyle: "solid",
       textDecoration: "none",
-      color: "white",
-      fontFamily: "Tahoma"
+      color: "white"
     };
   };
 
@@ -58,12 +57,19 @@ class Entries extends Component {
     });
   };
 
+  //works for all but first one;
+  editEntry = (id) => {
+    var copy = this.state.entries;
+    copy[id].saved = false;
+    this.setState({
+      copy
+    });
+  };
+  //TODO create saveEntry method
+  //Takes in an that has all of the id, name, etc.
+  //Saves it and updates the singluar entry
+
   render() {
-    //this refers to the specfic component 'Entries' created in App.js
-    // entry refers to the specific entry props(states)'entries' in App.js
-    //for object in entires (App.js) that we map through (list) we want to return:
-    //entry={entry}, the specifc Entry component will have an entry (object in App.js states) that can be referred to by the attribute/prop .entry
-    // similar for key
     return (
       <div>
         <div>
@@ -72,6 +78,7 @@ class Entries extends Component {
               key={entry.id}
               entry={entry}
               deleteEntry={this.deleteEntry}
+              editEntry={this.editEntry}
             />
           ))}
         </div>

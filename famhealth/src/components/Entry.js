@@ -33,8 +33,7 @@ export class Entry extends Component {
       borderRadius: "3px",
       borderStyle: "solid",
       textDecoration: "none",
-      color: "white",
-      fontFamily: "Tahoma"
+      color: "white"
     };
   };
 
@@ -43,7 +42,6 @@ export class Entry extends Component {
       resize: "none",
       overflow: "hidden",
       whiteSpace: "nowrap",
-      fontFamily: "Tahoma",
       padding: "2px",
       outline: "none",
       borderRadius: "2px",
@@ -57,7 +55,6 @@ export class Entry extends Component {
     return {
       resize: "none",
       overflow: "hidden",
-      fontFamily: "Tahoma",
       padding: "2px",
       outline: "none",
       borderRadius: "2px",
@@ -81,11 +78,6 @@ export class Entry extends Component {
 
   editClick = () => {
     this.props.entry.saved = false;
-    this.forceUpdate();
-  };
-
-  deleteClick = () => {
-    this.props.entry.key = -1;
     this.forceUpdate();
   };
 
@@ -119,8 +111,9 @@ export class Entry extends Component {
         <button
           type="button"
           style={this.editButtonStyle()}
-          onClick={this.editClick}
+          onClick={this.props.editEntry.bind(this, this.props.entry.id)}
         >
+          {/*onClick={this.editClick}*/}
           Edit
         </button>
         <button

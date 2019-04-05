@@ -2,10 +2,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Tahoma;
 }
 
 body {
-  font-family: Tahoma, Arial, Helvetica, sans-serif;
   line-height: 1.4;
 }
 
@@ -13,4 +13,3 @@ a {
   color: #333;
   text-decoration: none;
 }
-
